@@ -1,0 +1,26 @@
+
+  {% if teams %}
+    <ul>
+    {% for team in teams %}
+      <li>
+        <h1>Team Name:: {{ team.name }}</h1>
+        <h2>Description:: {{ team.description }}</h2>
+        <ul>
+          <h2>Members:</h2>
+          {% for member in team.members.all %}
+            <li>{{ member.username }}</li>
+          {% endfor %}
+        </ul>
+        <ul>
+          <h2>Documents:</h2>
+          {% for doc in team.files.all %}
+          <li><a href="{{file.file.url}}">{{doc.name}}</a> &nbsp;&nbsp;&nbsp; {{doc.uplaoded_by.username}} &nbsp;&nbsp;&nbsp; {{doc.uploaded_at}}</li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>You are not a member of any teams.</p>
+  {% endif %}
+

@@ -1,0 +1,27 @@
+
+{% load static %}
+
+<html>
+
+<head>
+    <title>Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimun-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'employdata.css' %}"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="main">
+        <div> Hi, {{request.user}} Welcome to company</div>
+        <div id="account">
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'workhome' %} ">Workspace</a>
+        </div> 
+
+    </div>
+</body>
+
+</html>
