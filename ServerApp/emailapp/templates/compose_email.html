@@ -1,7 +1,8 @@
-
-  <h1>Send email</h1>
-  <form method="post">
+<h2>Send Email</h2>
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Send</button>
-  </form>
+</form>
+
+
