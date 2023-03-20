@@ -1,20 +1,21 @@
-
 {% load static %}
 
 <html>
 
 <head>
-    <title>{{user.username}} interface</title>
-
+    <title>{{user.username}} Interface</title>
 </head>
 
 <body>
     <div id="main">
         <div> Hi, {{request.user}} Welcome to ServerApp</div>
         <div id="account">
-            <a href="{% url 'logout' %}">Logout</a>
             <a href="{% url 'workhome' %} ">Workspace</a>
-            <a href="{% url 'inbox' %} ">inbox</a>
+            <a href="{% url 'inbox' %} ">Inbox</a>
+            <a href="{% url 'calendarapp:calendar' %} ">Calendar</a>
+            <a href="{% url 'todo:todo' %} ">To-Do</a>
+
+            <a href="{% url 'logout' %}">Logout</a>
         </div> 
 
     </div>

@@ -3,9 +3,9 @@ from django.urls import path,include
 from .views import home,employdata,logoutUser
 
 urlpatterns = [
-    path('home/', home, name='home'),
+    path('', home, name='home'),
 
-    path('employdata/', employdata, name='employdata'),
+    path('home/', employdata, name='employdata'),
   
     path('logout/', logoutUser, name='logout'),
  
