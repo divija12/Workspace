@@ -10,9 +10,6 @@ from .models import *
 from .utils import Calendar
 from .forms import EventForm
 
-def index(request):
-    return HttpResponse('This is the index page')
-
 class CalendarView(generic.ListView):
     model = Event
     template_name = 'calendarapp/calendar.html'
