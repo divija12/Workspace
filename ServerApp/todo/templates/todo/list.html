@@ -6,7 +6,7 @@ To-Do List
 
 {% block content %}
 
-    <form action="/employee/todo/" method = "POST">
+    <form action="/todo/" method = "POST">
         {% csrf_token %}
         {{form.title}}
         <input class="btn btn-info right" type="submit" value="Add Item">

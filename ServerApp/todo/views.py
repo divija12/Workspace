@@ -13,7 +13,7 @@ def todoappView(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/employee/todo/')
+        return redirect('/todo/')
     
     context = {'all_items': all_items, 'form': form}
     return render(request, 'todo/list.html', context)
@@ -27,7 +27,7 @@ def updateTask(request, new_name):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-        return redirect('/employee/todo/')
+        return redirect('/todo/')
     
     context = {'form': form}
     return render(request, 'todo/update_task.html', context)
@@ -35,4 +35,4 @@ def updateTask(request, new_name):
 def deleteTask(request, id):
     item = Task.objects.get(id=id)
     item.delete()
-    return redirect('/employee/todo/')
+    return redirect('/todo/')
