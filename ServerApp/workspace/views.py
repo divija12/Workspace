@@ -5,11 +5,9 @@ from .forms import FileForm, TeamCreationForm
 from django.contrib.auth.models import User
 
 
-
 @login_required
 def workhome(request):
     return render(request, 'workhome.html')
-
 
 @login_required
 def upload_file(request):
@@ -41,7 +39,7 @@ def create_team(request):
             team.creator = request.user
             team.save()
             form.save_m2m()  
-            return redirect('workhome')
+            return redirect('team_list')
     else:
         form = TeamCreationForm()
     return render(request, 'create_team.html', {'form': form})
@@ -51,4 +49,4 @@ def create_team(request):
 def team_detail(request):
     user=request.user
     teams=user.teams.all()
-    return render(request,'team_detail.html',{'teams':teams})
+    return render(request,'team_detail.html', {'teams':teams})

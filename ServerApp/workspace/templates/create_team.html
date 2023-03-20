@@ -1,7 +1,8 @@
+<h2>Create a new team</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Create team</button>
+</form>
 
-  <h2>Create a new team</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create team</button>
-  </form>
+<a class="btn btn-sm btn-danger" href="{% url 'workhome' %}">Cancel</a>

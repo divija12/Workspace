@@ -3,7 +3,7 @@
   <title>{{user.username}}'s Workspace</title>
 </head>
 <body>
-  <h1>Welcome {{user.username}}!!</h1>
+  <h1>Welcome {{user.username}}!</h1>
   <hr>
   <h1>My Projects</h1>
   <div>
@@ -15,7 +15,8 @@
   <h1>My Teams</h1>
   <div>
   <ul>
-    <li><a href="{% url 'create' %}">create team</a></li>
+    <li><a href="{% url 'create' %}">Create Team</a></li>
+    <li><a href="{% url 'team_list' %}">Teams</a></li>
   </ul>
 </div>
   <hr>
