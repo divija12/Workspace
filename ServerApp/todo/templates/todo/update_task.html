@@ -1,0 +1,18 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+Update Task
+{% endblock %}
+
+{% block content %}
+
+    <form action="/employee/todo/" method = "POST">
+
+        {% csrf_token %}
+        <table class="form form-table">
+        {{form}}
+        </table>
+        <input class="btn btn-info" type="submit" value="Update Task">
+    </form>
+
+{% endblock %}

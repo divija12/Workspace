@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'workspace',
     'employee',
-    'emailapp'
+    'emailapp',
+    'todo',
+    'calendarapp',
 ]
 
 MIDDLEWARE = [

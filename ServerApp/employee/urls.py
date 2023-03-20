@@ -11,6 +11,9 @@ urlpatterns = [
  
     path('workspace/',include('workspace.urls')),
 
-    path('email/',include('emailapp.urls'))
+    path('email/',include('emailapp.urls')),
 
+    path('calendar/', include('calendarapp.urls')),
+
+    path('', include('todo.urls')),
 ]

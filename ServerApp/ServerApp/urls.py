@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('employee/', include('employee.urls')),
-
 ]
 admin.site.site_header = "Admin"
 admin.site.site_title = "Admin Portal"
