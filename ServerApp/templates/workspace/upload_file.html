@@ -1,8 +1,16 @@
-    <h1>Upload a file</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
+{% extends 'workspace/base.html' %}
 
-    <a class="btn btn-sm btn-danger" href="{% url 'uploaded_files' %}">Cancel</a>
+{% block title %}
+    Upload File
+{% endblock %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table class="form form-table">
+		  {{ form }}
+		  <tr><td colspan="2"><button type="submit" class="btn btn-info right"> Upload </button></td>
+		  <td colspan="2"><a class="btn btn-info" href="{% url 'workhome' %}"> Cancel </a></td></tr>
+		</table>
+	</form>
+{% endblock %}

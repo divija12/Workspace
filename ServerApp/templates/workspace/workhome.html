@@ -1,25 +1,19 @@
-<html>
-<head>
-  <title>{{user.username}}'s Workspace</title>
-</head>
-<body>
-  <h1>Welcome {{user.username}}!</h1>
-  <hr>
-  <h1>My Projects</h1>
-  <div>
-  <ul>
-    <li><a href="{% url 'uploaded_files' %}">My files</a></li>
-  </ul> 
-</div> 
-  <hr> 
-  <h1>My Teams</h1>
-  <div>
-  <ul>
-    <li><a href="{% url 'create' %}">Create Team</a></li>
-    <li><a href="{% url 'team_list' %}">Teams</a></li>
-  </ul>
-</div>
-  <hr>
+{% extends 'workspace/base.html' %}
 
-</body>
-</html>
+{% block title %}
+ Workspace
+{% endblock %}
+
+{% block content %}
+<div class="content">
+	<h3>My Projects</h3>
+	<ul>
+		<li><a href="{% url 'uploaded_files' %}">Files</a></li>
+	</ul>
+	<h3>My Teams</h3>
+	<ul>
+		<li><a href="{% url 'create' %}">Create Team</a></li>
+		<li><a href="{% url 'team_list' %}">Teams</a></li>
+	</ul>
+</div>
+{% endblock %}
