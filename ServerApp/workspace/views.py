@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 @login_required
 def workhome(request):
-    return render(request, 'workhome.html')
+    return render(request, 'workspace/workhome.html')
 
 @login_required
 def upload_file(request):
@@ -20,14 +20,14 @@ def upload_file(request):
             return redirect('workhome')
     else:
         form = FileForm()
-    return render(request, 'upload_file.html', {'form': form})
+    return render(request, 'workspace/upload_file.html', {'form': form})
 
 
 @login_required
 def uploaded_files(request):
     user = request.user
     files = File.objects.filter(uploaded_by=user)
-    return render(request, 'uploaded_files.html', {'files': files})
+    return render(request, 'workspace/uploaded_files.html', {'files': files})
 
 
 @login_required
@@ -42,11 +42,11 @@ def create_team(request):
             return redirect('team_list')
     else:
         form = TeamCreationForm()
-    return render(request, 'create_team.html', {'form': form})
+    return render(request, 'workspace/create_team.html', {'form': form})
 
 
 @login_required    
 def team_detail(request):
     user=request.user
     teams=user.teams.all()
-    return render(request,'team_detail.html', {'teams':teams})
+    return render(request,'workspace/team_detail.html', {'teams':teams})

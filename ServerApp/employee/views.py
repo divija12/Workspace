@@ -18,14 +18,14 @@ def home(request):
             else:
                 messages.info(request, 'Username or Password is incorrect')
 
-        return render(request, 'loginpage.html')
+        return render(request, 'employee/loginpage.html')
  
 
 
 
 @login_required
 def employdata(request):
-    return render(request, 'employdata.html')
+    return render(request, 'employee/employdata.html')
 def logoutUser(request):
     logout(request)
     return redirect('home')

@@ -7,7 +7,7 @@ from .forms import EmailForm
 @login_required
 def inbox(request):
     received_emails = Email.objects.filter(receiver=request.user).order_by('-sent_at')
-    return render(request, 'inbox.html', {'received_emails': received_emails})
+    return render(request, 'emailapp/inbox.html', {'received_emails': received_emails})
 
 @login_required
 def compose_email(request):
@@ -20,5 +20,5 @@ def compose_email(request):
             return redirect('inbox')
     else:
         form = EmailForm()
-    return render(request, 'compose_email.html', {'form': form})
+    return render(request, 'emailapp/compose_email.html', {'form': form})
 
