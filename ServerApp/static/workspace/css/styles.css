@@ -1,0 +1,65 @@
+/* App styles */
+.title {
+    text-align: center;
+    margin: 20px;
+    font-size: 30px;
+}
+
+ul {
+    height: 100%;
+    padding: 5px 5px 0px 20px;
+}
+
+a {
+    color: #065561;
+}
+
+/* Common styles */
+body {
+    font-family: "ptsans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    align-content: center;
+}
+
+.btn {
+    border-radius: 3px;
+    padding: 2px 2px 2px 2px;
+    color: #065561;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+    margin: 5px;
+    cursor: pointer;
+    float: right;
+}
+
+.clearfix {
+    margin: 15px;
+}
+
+.form {
+    margin: auto;
+}
+
+.form input, .form select, .form textarea {
+    border-radius: 5px;
+    border: 1px solid #065561;
+    outline: none;
+    background: none;
+    padding: 5px;
+    width: 100%;
+}
+
+.teams {
+    width: 90%;
+    margin: auto;
+}
+.teams td, .teams th {
+    margin: auto;
+    border: 1px solid #065561;
+    padding: 5px;
+    background-color: #aacacf;
+}
+
+.teams th {
+    text-align: center;
+    background-color: #038497;
+}

@@ -1,8 +1,16 @@
-<h2>Create a new team</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Create team</button>
-</form>
+{% extends 'workspace/base.html' %}
 
-<a class="btn btn-sm btn-danger" href="{% url 'workhome' %}">Cancel</a>
+{% block title %}
+	Create Team
+{% endblock %}
+
+{% block content %}
+	<form method="post">
+		{% csrf_token %}
+		<table class="form form-table">
+		  {{ form }}
+		  <tr><td colspan="2"><button type="submit" class="btn btn-info right"> Create Team </button></td>
+		  <td colspan="2"><a class="btn btn-info" href="{% url 'workhome' %}"> Cancel </a></td></tr>
+		</table>
+	</form>
+{% endblock %}

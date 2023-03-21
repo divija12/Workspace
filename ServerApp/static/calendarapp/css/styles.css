@@ -2,6 +2,7 @@
 .title {
   text-align: center;
   margin: 20px;
+  font-size: 30px;
 }
 
 .calendar {
@@ -59,13 +60,14 @@ body {
 }
 
 .btn {
-  outline: #065561 solid 1px;
   border-radius: 3px;
   padding: 2px 2px 2px 2px;
   color: #065561;
   background-color: transparent;
   box-shadow: 0 0 0 0;
-  margin-right: 3px;
+  margin: 5px;
+  cursor: pointer;
+  float: right;
 }
 
 .clearfix {

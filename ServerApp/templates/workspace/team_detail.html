@@ -1,26 +1,39 @@
-{% if teams %}
-  <ul>
-  {% for team in teams %}
-    <li>
-      <h1>Team Name:: {{ team.name }}</h1>
-      <h2>Description:: {{ team.description }}</h2>
-      <ul>
-        <h2>Members:</h2>
-        {% for member in team.members.all %}
-          <li>{{ member.username }}</li>
-        {% endfor %}
-      </ul>
-      <ul>
-        <h2>Documents:</h2>
-        {% for doc in team.files.all %}
-        <li><a href="{{file.file.url}}">{{doc.name}}</a> &nbsp;&nbsp;&nbsp; {{doc.uplaoded_by.username}} &nbsp;&nbsp;&nbsp; {{doc.uploaded_at}}</li>
-        {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-  </ul>
-{% else %}
-  <p>You are not a member of any teams.</p>
-{% endif %}
+{% extends 'workspace/base.html' %}
 
-<a class="btn btn-sm btn-danger" href="{% url 'workhome' %}">Back to Workspace</a>
+{% block title %}
+	My Teams
+{% endblock %}
+
+{% block content %}
+<div class="clearfix">
+	<a class="btn btn-info left" href="{% url 'workhome' %}"> Back to Workspace </a>
+</div>
+	{% if teams %}
+	<table class="teams">
+		<tr><th>Team Name</th>
+			<th>Description</th>
+			<th>Members</th>
+			<th>Documents</th></tr>
+		{% for team in teams %}
+			<tr><td>{{ team.name }}</td>
+				<td>{{ team.description }}</td>
+				<td><ul>
+					{% for member in team.members.all %}
+						<li>{{ member.username }}</li>
+					{% endfor %}
+				</ul></td>
+				<td><ul>
+					{% for doc in team.files.all %}
+						<li>
+							<a href="{{file.file.url}}">{{doc.name}}</a> &nbsp;&nbsp;&nbsp; {{doc.uplaoded_by.username}} &nbsp;&nbsp;&nbsp; {{doc.uploaded_at}}
+						</li>
+				    {% endfor %}
+				</ul></td>
+			</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+		<p>You are not a member of any team.</p>
+	{% endif %}
+
+{% endblock %}
