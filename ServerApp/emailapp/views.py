@@ -61,5 +61,12 @@ def reply_to_email(request, email_id):
         form = EmailForm(initial=initial_data)
     return render(request, 'emailapp/compose_email.html', {'form': form})
 
-#def mark_as_read_unread(request, email_id):
-    
+@login_required
+def mark_as_read_unread(request, email_id):
+    email = get_object_or_404(Email, id=email_id, recipient=request.user)
+    if email.read:
+        email.read = False
+    else:
+        email.read = True
+    email.save()
+    return redirect('inbox')
