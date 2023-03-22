@@ -6,6 +6,7 @@
         <strong>{{ email.sender }}</strong> - {{ email.subject }}<br>
         {{ email.body }}<br>
         <small>{{ email.sent_at }}</small>
+        <p>File: </p>{{ email.file }}
     </li>
 {% endfor %}
 </ul>

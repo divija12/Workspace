@@ -6,8 +6,9 @@ class EmailForm(forms.ModelForm):
     receiver = forms.ModelChoiceField(queryset=User.objects.all())
     subject = forms.CharField(max_length=200)
     body = forms.CharField(widget=forms.Textarea)
+    file = forms.FileField(required=False)
 
     class Meta:
         model = Email
-        fields = ['receiver', 'subject', 'body']
+        fields = ['receiver', 'subject', 'body', 'file']
 
