@@ -2,12 +2,17 @@
 {% if received_emails %}
 <ul>
 {% for email in received_emails %}
-    <li>
-        <strong>{{ email.sender }}</strong> - {{ email.subject }}<br>
-        {{ email.body }}<br>
-        <small>{{ email.sent_at }}</small>
-        <p>File: </p>{{ email.file }}
-    </li>
+<a href="{% url 'email_detail' email.id %}">
+    {% if email.read %}
+      <strong>{{ email.sender }}</strong>
+    {% else %}
+      {{ email.sender }}
+    {% endif %}
+    - {{ email.subject }}
+  </a>
+  <br>
+  <small>{{ email.sent_at }}</small>
+  <hr>
 {% endfor %}
 </ul>
 {% else %}

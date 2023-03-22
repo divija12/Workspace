@@ -1,8 +1,16 @@
-<h2>Send Email</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Send</button>
-</form>
+{% extends 'emailapp/base.html' %}
 
+{% block title %}
+    Send Email
+{% endblock %}
 
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<table class="form form-table">
+		  {{ form }}
+		  <tr><td colspan="2"><button type="submit" class="btn btn-info right"> Send </button></td>
+		  <td colspan="2"><a class="btn btn-info" href="{% url 'inbox' %}"> Cancel </a></td></tr>
+		</table>
+	</form>
+{% endblock %}

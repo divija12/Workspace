@@ -7,5 +7,6 @@ class Email(models.Model):
     subject = models.CharField(max_length=200)
     body = models.TextField()
     sent_at = models.DateTimeField(auto_now_add=True)
-    file = models.FileField(default='', upload_to='')
+    file = models.FileField(null=True, blank=True, upload_to='attachments/')
+    read = models.BooleanField(default=False)
 
