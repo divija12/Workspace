@@ -5,12 +5,12 @@
     <h2>{{ email.subject }}</h2>
     <p>From: <strong>{{ email.sender }}</strong></p>
     <!--<p>To: <strong>{{ email.recipient }}</strong></p>-->
-    <p>Date: <strong>{{ email.sent_at }}</strong></p>
+    <p>Date: <strong>{{ email.timestamp }}</strong></p>
     <hr>
-    <p>{{ email.body }}</p>
+    <pre>{{ email.body }}</pre>
     {% if email.file %}
-        <a href="{{ email.file.url }}"> View Attachment</a>
-        <a href="{{ email.file.url }}" download="{{ email.file.url }}"> Download Attachment</a>
-        {% endif %}
+      <a href="{{ email.file.url }}"> View Attachment</a>
+      <a href="{{ email.file.url }}" download="{{ email.file.url }}"> Download Attachment</a>
+    {% endif %}
   </div>
 {% endblock %}

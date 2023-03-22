@@ -1,22 +1,51 @@
-<h2>Inbox</h2>
-{% if received_emails %}
-<ul>
-{% for email in received_emails %}
-<a href="{% url 'email_detail' email.id %}">
-    {% if email.read %}
-      <strong>{{ email.sender }}</strong>
+{% extends 'emailapp/base.html' %}
+
+{% block title %}
+    Inbox
+{% endblock %}
+
+{% block content %}
+    {% if received_emails %}
+        <table class="table form-table">
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for email in received_emails %}
+                {% if email.read %}
+                    <tr> 
+                        <td>{{ email.sender }}</td>
+                        <td><a href="{% url 'email_detail' email.id %}">{{ email.subject }}</a></td>
+                        <td>{{ email.timestamp }}</td>
+                        <td>
+                            <a class="icon-btn btn-sm btn-danger" href="{% url 'delete_email' email.id %}"><i class="fa fa-trash"></i></a>
+                            <a class="icon-btn btn-sm btn-info" href="{% url 'reply_email' email.id %}"><i class="fa fa-reply"></i></a>
+                            <a class="icon-btn btn-sm btn-info" href="{% url 'mark_as_read_unread' email.id %}"><i class="fa fa-envelope"></i></a>
+                        </td>
+                        </a>
+                    </tr>
+                {% else %}
+                    <tr> 
+                        <td><b>{{ email.sender }}</b></td>
+                        <td><a href="{% url 'email_detail' email.id %}"><b>{{ email.subject }}</b></a></td>
+                        <td><b>{{ email.timestamp }}</b></td>
+                        <td>
+                            <a class="icon-btn btn-sm btn-danger" href="{% url 'delete_email' email.id %}"><i class="fa fa-trash"></i></a>
+                            <a class="icon-btn btn-sm btn-info" href="{% url 'reply_email' email.id %}"><i class="fa fa-reply"></i></a>
+                            <a class="icon-btn btn-sm btn-info" href="{% url 'mark_as_read_unread' email.id %}"><i class="fa fa-envelope-open"></i></a>
+                        </td>
+                        </a>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
     {% else %}
-      {{ email.sender }}
+        <p>Your inbox is empty.</p>
     {% endif %}
-    - {{ email.subject }}
-  </a>
-  <br>
-  <small>{{ email.sent_at }}</small>
-  <hr>
-{% endfor %}
-</ul>
-{% else %}
-<p>No emails yet!</p>
-{% endif %}
-
-
+{% endblock %}

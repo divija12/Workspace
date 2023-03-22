@@ -32,6 +32,16 @@ ul {
     cursor: pointer;
 }
 
+.icon-btn {
+    border-radius: 3px;
+    padding: 10px 20px;
+    color: #065561;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+    margin: 3px;
+    cursor: pointer;
+}
+
 .clearfix {
     margin: 15px;
 }

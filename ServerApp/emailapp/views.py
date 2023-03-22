@@ -6,7 +6,7 @@ from .forms import EmailForm
 
 @login_required
 def inbox(request):
-    received_emails = Email.objects.filter(receiver=request.user).order_by('-sent_at')
+    received_emails = Email.objects.filter(recipient=request.user).order_by('-timestamp')
     return render(request, 'emailapp/inbox.html', {'received_emails': received_emails})
 
 @login_required
@@ -15,8 +15,10 @@ def compose_email(request):
         form = EmailForm(request.POST, request.FILES or None)
         if form.is_valid():
             email = form.save(commit=False)
+            recipients = form.cleaned_data['recipient']
             email.sender = request.user
             email.save()
+            email.recipient.add(*recipients)
             return redirect('inbox')
     else:
         form = EmailForm()
@@ -24,7 +26,40 @@ def compose_email(request):
 
 @login_required
 def email_detail(request, email_id):
-    email = get_object_or_404(Email, id=email_id, receiver=request.user)
+    email = get_object_or_404(Email, id=email_id, recipient=request.user)
     email.read = True
     email.save()
     return render(request, 'emailapp/email_detail.html', {'email': email})
+
+
+@login_required
+def delete_email(request, email_id):
+    email = get_object_or_404(Email, id=email_id)
+    email.delete()
+    return redirect('inbox')
+
+@login_required
+def reply_to_email(request, email_id):
+    email = get_object_or_404(Email, id=email_id)
+    if request.method == 'POST':
+        form = EmailForm(request.POST, request.FILES or None)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            reply.sender = request.user
+            reply.save()
+            reply.recipient.add(email.sender)
+            reply.parent = email
+            reply.save()
+            return redirect('inbox')
+    else:
+        new_line = '\n'
+        initial_data = {
+            'recipient': [email.sender.email],
+            'subject': f"Re: {email.subject}",
+            'body': f"{new_line}{new_line}{new_line}---{new_line}{email.sender} wrote:{new_line}> {email.body}"
+        }
+        form = EmailForm(initial=initial_data)
+    return render(request, 'emailapp/compose_email.html', {'form': form})
+
+#def mark_as_read_unread(request, email_id):
+    
