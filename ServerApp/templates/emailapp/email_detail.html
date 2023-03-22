@@ -1,16 +1,22 @@
 {% extends 'emailapp/base.html' %}
 
+{% block title %}
+{% endblock %}
+
 {% block content %}
-  <div class="email">
-    <h2>{{ email.subject }}</h2>
-    <p>From: <strong>{{ email.sender }}</strong></p>
-    <!--<p>To: <strong>{{ email.recipient }}</strong></p>-->
-    <p>Date: <strong>{{ email.timestamp }}</strong></p>
-    <hr>
-    <pre>{{ email.body }}</pre>
-    {% if email.file %}
-      <a href="{{ email.file.url }}"> View Attachment</a>
-      <a href="{{ email.file.url }}" download="{{ email.file.url }}"> Download Attachment</a>
-    {% endif %}
-  </div>
+    <a class="icon-btn btn-info" href="{% url 'inbox' %}"><i class="fas fa-arrow-left"></i>  Inbox</a>
+	<a class="icon-btn btn-sm btn-danger" href="{% url 'delete_email' email.id %}"><i class="fa fa-trash"></i></a>
+    <a class="icon-btn btn-sm btn-info" href="{% url 'reply_email' email.id %}"><i class="fa fa-reply"></i></a>
+    <br><br>
+    <div class="content">
+        <h2>{{ email.subject }}</h2>
+        <p>From: <strong>{{ email.sender }}</strong></p>
+        <p><small>Date: {{ email.timestamp }}</small></p>
+        <hr>
+        <pre>{{ email.body }}</pre>
+        {% if email.file %}
+            <a class="icon-btn btn-sm btn-info" href="{{ email.file.url }}"> View Attachment</a>
+            <a class="icon-btn btn-sm btn-info" href="{{ email.file.url }}" download="{{ email.file.url }}"> Download Attachment</a>
+        {% endif %}
+    </div>
 {% endblock %}

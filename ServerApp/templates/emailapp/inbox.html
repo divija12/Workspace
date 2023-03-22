@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+<a class="icon-btn btn-info" href="{% url 'send_email' %}"><i class="fas fa-edit"></i>  Compose</a>
+<br><br>
     {% if received_emails %}
         <table class="table form-table">
             <thead>
