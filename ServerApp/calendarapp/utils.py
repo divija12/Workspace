@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
-from calendar import HTMLCalendar
+from calendar import HTMLCalendar #python module to use formatted calendars in programs
 from .models import Event
+import calendar
 
 class Calendar(HTMLCalendar):
 	def __init__(self, year=None, month=None):
@@ -39,3 +40,18 @@ class Calendar(HTMLCalendar):
 		for week in self.monthdays2calendar(self.year, self.month):
 			cal += f'{self.formatweek(week, events)}\n'
 		return cal
+	
+	#calculate prev_month for the current date
+	def prev_month(self, d):
+		first = d.replace(day=1)
+		prev_month = first - timedelta(days=1)
+		month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
+		return month
+
+	#calculate next_month for the current date
+	def next_month(self, d):
+		days_in_month = calendar.monthrange(d.year, d.month)[1]
+		last = d.replace(day=days_in_month)
+		next_month = last + timedelta(days=1)
+		month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
+		return month

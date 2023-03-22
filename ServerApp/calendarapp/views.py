@@ -1,5 +1,18 @@
-from datetime import datetime, timedelta, date
-import calendar
+'''
+Class CalendarView used to view calendar of today's date, month, year
+def get_context_data(..):
+    overrides existing function to calculate prev_month, next_month and form the calendar
+    for navigating the calendar
+
+Function to add and edit Events to calendar
+def event(..):
+    if event_id exists:
+        View, edit existing event
+    else:
+        Let user create a new event
+'''
+
+from datetime import datetime, date
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
@@ -16,34 +29,21 @@ class CalendarView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # use today's date for the calendar
-        d = get_date(self.request.GET.get('month', None))
-        # Instantiate our calendar class with today's year and date
+        # use today's date for generating the calendar
+        d = self.get_date(self.request.GET.get('month', None))
+        # Instantiate calendar class with today's year and date
         cal = Calendar(d.year, d.month)
         html_cal = cal.formatmonth(withyear=True)
         context['calendar'] = mark_safe(html_cal)
-        context['prev_month'] = prev_month(d)
-        context['next_month'] = next_month(d)
+        context['prev_month'] = Calendar.prev_month(cal, d)
+        context['next_month'] = Calendar.next_month(cal, d)
         return context
 
-def get_date(req_day):
-    if req_day:
-        year, month = (int(x) for x in req_day.split('-'))
-        return date(year, month, day=1)
-    return datetime.today()
-
-def prev_month(d):
-    first = d.replace(day=1)
-    prev_month = first - timedelta(days=1)
-    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-    return month
-
-def next_month(d):
-    days_in_month = calendar.monthrange(d.year, d.month)[1]
-    last = d.replace(day=days_in_month)
-    next_month = last + timedelta(days=1)
-    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
-    return month
+    def get_date(self, req_day):
+        if req_day:
+            year, month = (int(x) for x in req_day.split('-'))
+            return date(year, month, day=1)
+        return datetime.today()
 
 def event(request, event_id=None):
     instance = Event()
