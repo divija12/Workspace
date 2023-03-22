@@ -1,14 +1,14 @@
-{% load static %}
+{% extends 'employee/base.html' %}
 
-<html>
+{% block title %}
+    {{user.username}}'s Interface
+{% endblock %}
 
-<head>
-    <title>{{user.username}} Interface</title>
-</head>
+{% block content %}
 
-<body>
-    <div id="main">
-        <div> Hello, {{request.user}} Welcome to ServerApp</div>
+    <div id="content">
+        <p> Hello, {{request.user}} </p>
+        <p>Welcome to ServerApp</p>
         <div id="account">
             <a href="{% url 'workhome' %} ">Workspace</a>
             <a href="{% url 'inbox' %} ">Inbox</a>
@@ -19,6 +19,4 @@
         </div> 
 
     </div>
-</body>
-
-</html>
+{% endblock %}
