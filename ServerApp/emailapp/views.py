@@ -35,7 +35,12 @@ def email_detail(request, email_id):
 @login_required
 def delete_email(request, email_id):
     email = get_object_or_404(Email, id=email_id)
-    email.delete()
+    recipient_count = email.recipient.count()
+    if recipient_count > 1:
+        email.recipient.remove(request.user)
+        email.save()
+    else:
+        email.delete()
     return redirect('inbox')
 
 @login_required
