@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="clearfix">
-	<a class="btn btn-info left" href="{% url 'workhome' %}"> Back to Workspace </a>
-</div>
+<div class="content">
+	<div class="clearfix">
+		<a class="btn btn-info left" href="{% url 'workhome' %}"> Back to Workspace </a>
+	</div>
 	{% if teams %}
 	<table class="table">
 		<tr><th>Team Name</th>
@@ -35,5 +36,5 @@
 	{% else %}
 		<p>You are not a member of any team.</p>
 	{% endif %}
-
+</div>
 {% endblock %}
