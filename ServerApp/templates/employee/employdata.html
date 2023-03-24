@@ -12,6 +12,7 @@
         <div id="account">
             <a href="{% url 'workhome' %} ">Workspace</a>
             <a href="{% url 'inbox' %} ">Inbox</a>
+            <a href="{% url 'chat' request.user %} ">Chats</a>
             <a href="{% url 'calendarapp:calendar' %} ">Calendar</a>
             <a href="{% url 'chat' username=request.user.username  %} ">Chat</a>
             <a href="{% url 'todo:todo' %} ">To-Do</a>

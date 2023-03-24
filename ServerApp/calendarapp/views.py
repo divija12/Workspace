@@ -12,7 +12,8 @@ from .forms import EventForm
 class CalendarView(generic.ListView):
     model = Event
     template_name = 'calendarapp/calendar.html'
-
+    
+    #overrides existing function to calculate prev_month, next_month and form the calendar
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # use today's date for generating the calendar
@@ -31,11 +32,14 @@ class CalendarView(generic.ListView):
             return date(year, month, day=1)
         return datetime.today()
 
+#add events to the calendar
 def event(request, event_id=None):
     instance = Event()
     if event_id:
+        #View or edit existing event    
         instance = get_object_or_404(Event, pk=event_id)
     else:
+        #Create a new event 
         instance = Event()
     
     form = EventForm(request.POST or None, instance=instance)
