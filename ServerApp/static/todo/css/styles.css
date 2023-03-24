@@ -1,9 +1,6 @@
 /* Common and App styles */
 body {
     font-family: "ptsans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 10px auto;
-    min-width: 250px;
-    max-width: 50%;
     box-sizing: border-box;
 }
 
@@ -67,6 +64,7 @@ ul li:hover {
 
 .form {
     margin: auto;
+    align-self: center;
 }
 
 .form input, .form textarea {
@@ -76,4 +74,45 @@ ul li:hover {
     background: none;
     padding: 5px;
     width: 100%;
+}
+
+
+/* The side navigation menu */
+.sidebar {
+    width: 90px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    margin-right: 200px;
+}
+
+/* Sidebar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+    border-radius: 0px;
+}
+
+/* Active/current link */
+.sidebar a.active {
+    background-color: #065561;
+    color: white;
+}
+  
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+  
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+    min-width: 250px;
+    max-width: 50%;
+    margin-left: 320px;
+    height: 100%;
 }

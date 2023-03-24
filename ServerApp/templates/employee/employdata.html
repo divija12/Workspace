@@ -5,11 +5,10 @@
 {% endblock %}
 
 {% block content %}
-
-    <div id="content">
+    <div id="content" class="content">
         <p> Hello, {{request.user}} </p>
         <p>Welcome to ServerApp</p>
-        <div id="account">
+        <!--<div id="account">
             <a href="{% url 'workhome' %} ">Workspace</a>
             <a href="{% url 'inbox' %} ">Inbox</a>
             <a href="{% url 'chat' request.user %} ">Chats</a>
@@ -17,7 +16,6 @@
             <a href="{% url 'chat' username=request.user.username  %} ">Chat</a>
             <a href="{% url 'todo:todo' %} ">To-Do</a>
             <a href="{% url 'logout' %}">Logout</a>
-        </div> 
-
+        </div> -->
     </div>
 {% endblock %}

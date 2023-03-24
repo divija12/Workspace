@@ -12,13 +12,22 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
 	  crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Mf+Gd3uq7DroI6UaV6UwR6ZMz7U0vBkOe2Y9AAyA/pRyRFGwOwqxTJ8zimZ3E3FvgOv+lTrgFjs23hUnfL15yQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 	<link rel="stylesheet" type="text/css" href="{% static 'workspace/css/styles.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
 	<title>{{user.username}}'s Interface</title>
 </head>
 
 <body>
-
+	<div class="sidebar">
+		<a class="active" href="{% url 'employdata' %}"><i class="fa fa-home" style="font-size: 40px;"></i><p style="font-size: small;">Home</p></a>
+		<a href="{% url 'workhome' %}"><i class="fa fa-users" style="font-size: 40px;"></i><p style="font-size: small;">Workspace</p></a>
+		<a href="{% url 'inbox' %}"><i class="fa fa-envelope" style="font-size: 40px;"></i><p style="font-size: small;">Mail</p></a>
+		<a href="{% url 'calendarapp:calendar' %}"><i class="fa fa-calendar" style="font-size: 40px;"></i><p style="font-size: small;">Calendar</p></a>
+		<a href="{% url 'todo:todo' %}"><i class="fas fa-tasks" style="font-size: 40px;"></i><p style="font-size: small;">To-do</p></a>
+		<a href="{% url 'chat' request.user %}"><i class="far fa-comment-dots" style="font-size: 40px;"></i><p style="font-size: small;">Chat</p></a>
+		<a href="{% url 'logout' %}"><i class="fa fa-sign-out" style="font-size: 40px;"></i><p style="font-size: small;">Logout</p></a>
+	</div>
 	<h1 class="title">{% block title %}{% endblock %}</h1>
 	<hr>	
 	{% block content %}

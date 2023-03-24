@@ -62,3 +62,38 @@ ul {
 .content {
     margin: 20px;
 }
+
+/* The side navigation menu */
+.sidebar {
+    width: 90px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+}
+
+/* Sidebar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+    background-color: #065561;
+    color: white;
+}
+  
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+  
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+    margin-left: 120px;
+    height: 100%;
+}

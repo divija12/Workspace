@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 
 <head>
@@ -18,10 +19,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
         crossorigin="anonymous" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
     {% block css %}{% endblock %}
 </head>
 
 <body>
+    <div class="sidebar">
+		<a href="{% url 'employdata' %}"><i class="fa fa-home" style="font-size: 40px;"></i><p style="font-size: small;">Home</p></a>
+		<a href="{% url 'workhome' %}"><i class="fa fa-users" style="font-size: 40px;"></i><p style="font-size: small;">Workspace</p></a>
+		<a href="{% url 'inbox' %}"><i class="fa fa-envelope" style="font-size: 40px;"></i><p style="font-size: small;">Mail</p></a>
+		<a href="{% url 'calendarapp:calendar' %}"><i class="fa fa-calendar" style="font-size: 40px;"></i><p style="font-size: small;">Calendar</p></a>
+		<a href="{% url 'todo:todo' %}"><i class="fas fa-tasks" style="font-size: 40px;"></i><p style="font-size: small;">To-do</p></a>
+		<a class="active" href="{% url 'chat' request.user %}"><i class="far fa-comment-dots" style="font-size: 40px;"></i><p style="font-size: small;">Chat</p></a>
+		<a href="{% url 'logout' %}"><i class="fa fa-sign-out" style="font-size: 40px;"></i><p style="font-size: small;">Logout</p></a>
+	</div>
     {% block content %}{% endblock %}
     {% block javascript %}{% endblock %}
 </body>

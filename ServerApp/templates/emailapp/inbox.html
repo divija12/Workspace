@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="content">
 <a class="icon-btn btn-info" href="{% url 'send_email' %}"><i class="fas fa-edit"></i>  Compose</a>
 <br><br>
     {% if received_emails %}
@@ -50,4 +51,5 @@
     {% else %}
         <p>Your inbox is empty.</p>
     {% endif %}
+</div>
 {% endblock %}

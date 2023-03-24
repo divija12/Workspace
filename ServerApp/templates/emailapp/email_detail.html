@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="content">
     <a class="icon-btn btn-info" href="{% url 'inbox' %}"><i class="fas fa-arrow-left"></i>  Inbox</a>
 	<a class="icon-btn btn-sm btn-danger" href="{% url 'delete_email' email.id %}"><i class="fa fa-trash"></i></a>
     <a class="icon-btn btn-sm btn-info" href="{% url 'reply_email' email.id %}"><i class="fa fa-reply"></i></a>
@@ -19,4 +20,5 @@
             <a class="icon-btn btn-sm btn-info" href="{{ email.file.url }}" download="{{ email.file.url }}"> Download Attachment</a>
         {% endif %}
     </div>
+</div>
 {% endblock %}
