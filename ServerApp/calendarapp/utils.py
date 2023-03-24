@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
-from calendar import HTMLCalendar #python module to use formatted calendars in programs
+#python module to use formatted calendars in programs
+from calendar import HTMLCalendar
 from .models import Event
 import calendar
 
