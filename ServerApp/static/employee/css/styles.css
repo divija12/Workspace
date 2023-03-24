@@ -2,9 +2,9 @@
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
-  }
+}
   
-  .form {
+.form {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
@@ -13,13 +13,13 @@
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  }
+}
   
-  .form input {
+.form input {
     margin: 0 0 20px;
-  }
+}
   
-  .form button {
+.form button {
     background: #065561;
     width: 100%;
     padding: 15px;
@@ -28,12 +28,12 @@
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
-  }
+}
   
-  .form button:hover,.form button:active,.form button:focus {
+.form button:hover,.form button:active,.form button:focus {
     background: #0e7382;
-  }
+}
   
-  body {
+body {
     background: #54a3af;    
-  }
+}
