@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path,include
 from .views import home,employdata,logoutUser
+from chats.views import index, chatPage
+
 
 urlpatterns = [
     path('', home, name='home'),
@@ -16,4 +18,7 @@ urlpatterns = [
     path('calendar/', include('calendarapp.urls')),
 
     path('', include('todo.urls')),
+
+    path('chat/<str:username>/', chatPage, name='chat'),
+
 ]

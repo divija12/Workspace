@@ -1,17 +1,3 @@
-'''
-Class CalendarView used to view calendar of today's date, month, year
-def get_context_data(..):
-    overrides existing function to calculate prev_month, next_month and form the calendar
-    for navigating the calendar
-
-Function to add and edit Events to calendar
-def event(..):
-    if event_id exists:
-        View, edit existing event
-    else:
-        Let user create a new event
-'''
-
 from datetime import datetime, date
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
