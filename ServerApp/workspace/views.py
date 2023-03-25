@@ -4,7 +4,7 @@ from .models import Team, File
 from .forms import FileForm, TeamCreationForm
 from django.contrib.auth.models import User
 
-
+#workspace_home
 @login_required
 def workhome(request):
     return render(request, 'workspace/workhome.html')
@@ -22,7 +22,7 @@ def upload_file(request):
         form = FileForm()
     return render(request, 'workspace/upload_file.html', {'form': form})
 
-
+#get_uploaded_files
 @login_required
 def uploaded_files(request):
     user = request.user
