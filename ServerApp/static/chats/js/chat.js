@@ -2,6 +2,7 @@ const id = JSON.parse(document.getElementById('json-username').textContent);
 const message_username = JSON.parse(document.getElementById('json-message-username').textContent);
 const receiver = JSON.parse(document.getElementById('json-username-receiver').textContent);
 
+// establishes connection with WebSockets
 const socket = new WebSocket(
     'ws://'
     + window.location.host
@@ -22,6 +23,7 @@ socket.onerror = function(e){
     console.log("ERROR OCCURED");
 }
 
+//executes the query of displaying the chat messages
 socket.onmessage = function(e){
     const data = JSON.parse(e.data);
     if(data.username == message_username){
@@ -39,6 +41,7 @@ socket.onmessage = function(e){
     }
 }
 
+// executes the query for sending a message from the client
 document.querySelector('#chat-message-submit').onclick = function(e){
     const message_input = document.querySelector('#message_input');
     const message = message_input.value;
