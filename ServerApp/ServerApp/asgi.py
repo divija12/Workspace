@@ -11,6 +11,8 @@ from channels.auth import AuthMiddlewareStack
 
 from chats.consumers import PersonalChatConsumer
 
+from chats.routings import websockets_urlpatterns
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ServerApp.settings')
 
 application = get_asgi_application()
@@ -18,8 +20,8 @@ application = get_asgi_application()
 
 application = ProtocolTypeRouter({
     'websocket': AuthMiddlewareStack(
-        URLRouter([
-            path('ws/<int:id>/', PersonalChatConsumer.as_asgi()),
-        ])
+        URLRouter(
+            websockets_urlpatterns
+        )
     )
 })
