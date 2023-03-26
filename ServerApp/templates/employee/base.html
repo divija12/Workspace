@@ -25,7 +25,7 @@
 		<a href="{% url 'inbox' %}"><i class="fa fa-envelope" style="font-size: 40px;"></i><p style="font-size: small;">Mail</p></a>
 		<a href="{% url 'calendarapp:calendar' %}"><i class="fa fa-calendar" style="font-size: 40px;"></i><p style="font-size: small;">Calendar</p></a>
 		<a href="{% url 'todo:todo' %}"><i class="fas fa-tasks" style="font-size: 40px;"></i><p style="font-size: small;">To-do</p></a>
-		<a href="{% url 'chat' request.user %}"><i class="far fa-comment-dots" style="font-size: 40px;"></i><p style="font-size: small;">Chat</p></a>
+		<a href="{% url 'chat' request.user %}"><i class="fas fa-comment-dots" style="font-size: 40px;"></i><p style="font-size: small;">Chat</p></a>
 		<a href="{% url 'logout' %}"><i class="fa fa-sign-out" style="font-size: 40px;"></i><p style="font-size: small;">Logout</p></a>
 	</div>
 	<h1 class="title">{% block title %}{% endblock %}</h1>
