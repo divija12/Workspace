@@ -9,7 +9,6 @@ class FileForm(forms.ModelForm):
         model = File
         fields = ['name', 'description', 'file','team']
 
-
 class TeamCreationForm(forms.ModelForm):
     class Meta:
         model = Team

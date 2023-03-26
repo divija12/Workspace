@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class UserProfileModel(models.Model):
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     name = models.CharField(blank=True, null=True, max_length=100)
@@ -9,7 +8,6 @@ class UserProfileModel(models.Model):
 
     def __str__(self) -> str:
         return self.user.username
-
 
 class ChatModel(models.Model):
     sender = models.CharField(max_length=100, default=None)

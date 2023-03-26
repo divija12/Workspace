@@ -2,11 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from chats.models import ChatModel
 
-
 def index(request):
     users = User.objects.exclude(username=request.user.username)
     return render(request, 'chats/index.html', context={'users': users})
-
 
 def chatPage(request, username):
     user_obj = User.objects.get(username=username)

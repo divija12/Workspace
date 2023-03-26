@@ -3,8 +3,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-
-
 def home(request):
         if request.method =="POST":
             username=request.POST.get('username')
@@ -19,9 +17,6 @@ def home(request):
                 messages.info(request, 'Username or Password is incorrect')
 
         return render(request, 'employee/loginpage.html')
- 
-
-
 
 @login_required
 def employdata(request):

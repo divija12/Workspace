@@ -7,7 +7,6 @@ Update Task
 {% block content %}
 
     <form action="/todo/" method = "POST">
-
         {% csrf_token %}
         <table class="form form-table">
         {{form}}

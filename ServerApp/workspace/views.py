@@ -29,7 +29,6 @@ def uploaded_files(request):
     files = File.objects.filter(uploaded_by=user)
     return render(request, 'workspace/uploaded_files.html', {'files': files})
 
-
 @login_required
 def create_team(request):
     if request.method == 'POST':
@@ -43,7 +42,6 @@ def create_team(request):
     else:
         form = TeamCreationForm()
     return render(request, 'workspace/create_team.html', {'form': form})
-
 
 @login_required    
 def team_detail(request):

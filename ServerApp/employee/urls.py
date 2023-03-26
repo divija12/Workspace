@@ -3,7 +3,6 @@ from django.urls import path,include
 from .views import home,employdata,logoutUser
 from chats.views import index, chatPage
 
-
 urlpatterns = [
     path('', home, name='home'),
 

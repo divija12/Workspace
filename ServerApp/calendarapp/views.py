@@ -1,6 +1,6 @@
 from datetime import datetime, date
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse
 from django.utils.safestring import mark_safe
