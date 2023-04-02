@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
 class FileForm(forms.ModelForm):
-    team = forms.ModelChoiceField(queryset=Team.objects.all(), empty_label='No team')
+    team = forms.ModelChoiceField(queryset=Team.objects.all().values_list('id','name'), empty_label='No team')
     class Meta:
         model = File
         fields = ['name', 'description', 'file','team']
