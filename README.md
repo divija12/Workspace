@@ -1,4 +1,4 @@
-## Final-Project
+## Workspace and Communication App
 This is a secure workspace server with multiple features making it easy to collaborate with your colleagues built using **Django 4**, **HTML 5**, **CSS 3**, **Bootstrap 5**, and vanilla **JavaScript**.
 
 ## Table of Contents 
